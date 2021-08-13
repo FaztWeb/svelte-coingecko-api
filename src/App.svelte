@@ -1,13 +1,12 @@
 <script>
-import { onMount } from "svelte";
-
+  import { onMount } from "svelte";
 
   let coins = [];
   let headings = ["#", "Coin", "Price", "Price Change", "24h Volume"];
   let textSearch = "";
   let filteredCoins = [];
 
-	let ref = null;
+  let ref = null;
 
   const loadCoins = async () => {
     const res = await fetch(
@@ -27,10 +26,9 @@ import { onMount } from "svelte";
     );
   };
 
-	onMount(() => {
-		ref.focus();
-	})
-
+  onMount(() => {
+    ref.focus();
+  });
 </script>
 
 <main class="container p-4">
@@ -39,7 +37,7 @@ import { onMount } from "svelte";
     class="form-control bg-dark text-white rounded-0 border-0 my-4"
     bind:value={textSearch}
     on:keyup={({ target: { value } }) => searchCoin(value)}
-		bind:this={ref}
+    bind:this={ref}
   />
 
   <h1>CoinMarket</h1>
